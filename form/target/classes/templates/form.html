@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>情報入力</title>
+</head>
+
+<body>
+	<form action="result" th:object="${personForm}" method="post">
+		氏名：<input type="text" th:field="*{name}">
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+		年齢：<input type="text" th:field="*{age}">
+		<span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span><br>
+		ニックネーム：<input type="text" th:field="*{nickname}">
+		<span th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></span><br>
+		
+		<input type="submit" value="送信">
+	</form>
+</body>
+
+</html>
