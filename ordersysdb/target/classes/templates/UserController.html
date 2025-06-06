@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>パスワード変更</title>
+</head>
+
+<body>
+	<h2>パスワード変更</h2>
+
+	<form th:action="@{/user/password}" th:object="${passwordChangeForm}" method="post">
+		<div>
+			<label>EID：</label>
+			<input type="text" th:field="*{eid}" />
+			<span th:if="${#fields.hasErrors('eid')}" th:errors="*{eid}">eid error</span>
+		</div>
+		<div>
+			<label>新しいパスワード：</label>
+			<input type="password" th:field="*{newPassword}" />
+			<span th:if="${#fields.hasErrors('newPassword')}" th:errors="*{newPassword}">password error</span>
+		</div>
+		<div>
+			<button type="submit">変更</button>
+		</div>
+	</form>
+
+	<p th:text="${message}">メッセージ</p>
+</body>
+
+</html>
